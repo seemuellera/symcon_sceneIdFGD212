@@ -22,8 +22,6 @@ class SceneIdFGD212 extends IPSModule {
 		$this->RegisterPropertyString("Sender","SceneIdFGD212");
 		$this->RegisterPropertyInteger("RefreshInterval",0);
 		$this->RegisterPropertyInteger("SceneId",0);
-		$this->RegisterPropertyInteger("TargetStatusVariableId",0);
-		$this->RegisterPropertyInteger("TargetIntensityVariableId",0);
 		$this->RegisterPropertyBoolean("DebugOutput",false);
 		
 		// Variables
@@ -68,8 +66,6 @@ class SceneIdFGD212 extends IPSModule {
 		$form['elements'][] = Array("type" => "NumberSpinner", "name" => "RefreshInterval", "caption" => "Refresh Interval");
 		$form['elements'][] = Array("type" => "CheckBox", "name" => "DebugOutput", "caption" => "Enable Debug Output");
 		$form['elements'][] = Array("type" => "SelectVariable", "name" => "SceneId", "caption" => "Scene ID of source device");
-		$form['elements'][] = Array("type" => "SelectVariable", "name" => "TargetStatusVariableId", "caption" => "Status variable of target device");
-		$form['elements'][] = Array("type" => "SelectVariable", "name" => "TargetIntensityVariableId", "caption" => "Intensity variable of target device");
 		
 		// Add the buttons for the test center
 		$form['actions'][] = Array(	"type" => "Button", "label" => "Refresh", "onClick" => 'SCENEIDFGD212_RefreshInformation($id);');
