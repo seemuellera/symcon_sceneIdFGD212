@@ -35,15 +35,15 @@ class SceneIdFGD212 extends IPSModule {
 		$this->RegisterPropertyInteger("SceneId",0);
 		$this->RegisterPropertyBoolean("DebugOutput",false);
 		// Properties - Scenes
-		$this->ReadPropertyBoolean("SceneS1SingleClickEnabled",false);
-		$this->ReadPropertyBoolean("SceneS1DoubleClickEnabled",false);
-		$this->ReadPropertyBoolean("SceneS1HoldEnabled",false);
-		$this->ReadPropertyBoolean("SceneS1ReleaseEnabled",false);
-		$this->ReadPropertyBoolean("SceneS2SingleClickEnabled",false);
-		$this->ReadPropertyBoolean("SceneS2DoubleClickEnabled",false);
-		$this->ReadPropertyBoolean("SceneS2TrippleClickEnabled",false);
-		$this->ReadPropertyBoolean("SceneS2HoldEnabled",false);
-		$this->ReadPropertyBoolean("SceneS2ReleaseEnabled",false);
+		$this->RegisterPropertyBoolean("SceneS1SingleClickEnabled",false);
+		$this->RegisterPropertyBoolean("SceneS1DoubleClickEnabled",false);
+		$this->RegisterPropertyBoolean("SceneS1HoldEnabled",false);
+		$this->RegisterPropertyBoolean("SceneS1ReleaseEnabled",false);
+		$this->RegisterPropertyBoolean("SceneS2SingleClickEnabled",false);
+		$this->RegisterPropertyBoolean("SceneS2DoubleClickEnabled",false);
+		$this->RegisterPropertyBoolean("SceneS2TrippleClickEnabled",false);
+		$this->RegisterPropertyBoolean("SceneS2HoldEnabled",false);
+		$this->RegisterPropertyBoolean("SceneS2ReleaseEnabled",false);
 		
 		// Variables
 		$this->RegisterVariableInteger("LastTrigger","Last Trigger","~UnixTimestamp");
