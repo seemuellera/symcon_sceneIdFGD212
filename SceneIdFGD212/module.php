@@ -463,11 +463,13 @@ class SceneIdFGD212 extends IPSModule {
 				if(! $this->ReadPropertyBoolean("SceneS2SingleClickEnabled") ) {
 					return;
 				}
+				$this->DeviceHandler($this->ReadPropertyInteger("SceneS2SingleClickTarget"), $this->ReadPropertyString("SceneS2SingleClickAction"), $this->ReadPropertyInteger("SceneS2SingleClickDimValue"));
 				break;
 			case "24":
 				if(! $this->ReadPropertyBoolean("SceneS2DoubleClickEnabled") ) {
 					return;
 				}
+				$this->DeviceHandler($this->ReadPropertyInteger("SceneS2DoubleClickTarget"), $this->ReadPropertyString("SceneS2DoubleClickAction"), $this->ReadPropertyInteger("SceneS2DoubleClickDimValue"));
 				break;
 			case "25":
 				if(! $this->ReadPropertyBoolean("SceneS2TrippleClickEnabled") ) {
@@ -492,4 +494,51 @@ class SceneIdFGD212 extends IPSModule {
 		SetValue($this->GetIDForIdent("LastAction"), $this->SceneNames[$sceneId]);
 	}
 
+	protected function DeviceHandler($targetId, $action, $specificValue = false) {
+		
+		switch ($action) {
+			
+			case "Toggle":
+				$this->ToggleDevice($targetId);
+				return;
+			case "SwitchOn":
+				$this->SwitchDeviceOn($targetId);
+				return;
+			case "SwitchOff":
+				$this->SwitchDeviceOff($targetId);
+				return;
+			case "DimToValue":
+				$this->DimDeviceToValue($targetId, $specificValue);
+				return;
+			default:
+				throw new Exception("Action not yet implemented");
+		}
+	}
+	
+	protected function ToggleDevice($targetId) {
+		
+		if (GetValue($targetId) ) {
+			
+			RequestAction($targetId, false);
+		}
+		else {
+			
+			RequestAction($targetId, true);
+		}
+	}
+	
+	protected function SwitchDeviceOn($targetId) {
+			
+		RequestAction($targetId, true);
+	}
+	
+	protected function SwitchDeviceOff($targetId) {
+			
+		RequestAction($targetId, false);
+	}
+	
+	protected function DimDeviceToValue($targetId, $value) {
+			
+		RequestAction($targetId, $value);
+	}
 }
