@@ -23,6 +23,7 @@ class SceneIdFGD212 extends IPSModule {
 		$this->RegisterPropertyInteger("RefreshInterval",0);
 		$this->RegisterPropertyInteger("SceneId",0);
 		$this->RegisterPropertyBoolean("DebugOutput",false);
+		$this->RegisterPropertyString("SceneActions", "");
 		
 		// Variables
 		$this->RegisterVariableInteger("LastTrigger","Last Trigger","~UnixTimestamp");
@@ -66,6 +67,100 @@ class SceneIdFGD212 extends IPSModule {
 		$form['elements'][] = Array("type" => "NumberSpinner", "name" => "RefreshInterval", "caption" => "Refresh Interval");
 		$form['elements'][] = Array("type" => "CheckBox", "name" => "DebugOutput", "caption" => "Enable Debug Output");
 		$form['elements'][] = Array("type" => "SelectVariable", "name" => "SceneId", "caption" => "Scene ID of source device");
+		
+		$sceneActionsColumns = Array(
+			Array(
+				"caption" => "Scene",
+				"Name" => "Scene",
+				"width" => "auto"
+			),
+			Array(
+				"caption" => "Scene ID",
+				"Name" => "SceneId",
+				"width" => "auto",
+				"visible" => false
+			),
+			Array(
+				"caption" => "Active",
+				"Name" => "SceneActive",
+				"width" => "auto",
+				"edit" => Array("type" => "CheckBox")
+			),
+			Array(
+				"caption" => "Variable Id",
+				"name" => "VariableId",
+				"width" => "auto",
+				"edit" => Array("type" => "SelectVariable")
+			)
+		);
+		
+		$sceneActionsValues = Array(
+			Array(
+				"Scene" => "S1 single click",
+				"SceneId => "16",
+				"Active" => false,
+				"VariableId => "0"
+			),
+			Array(
+				"Scene" => "S1 double click",
+				"SceneId => "14",
+				"Active" => false,
+				"VariableId => "0"
+			),
+			Array(
+				"Scene" => "S1 hold",
+				"SceneId => "12",
+				"Active" => false,
+				"VariableId => "0"
+			),
+			Array(
+				"Scene" => "S1 release",
+				"SceneId => "13",
+				"Active" => false,
+				"VariableId => "0"
+			),
+			Array(
+				"Scene" => "S2 single click",
+				"SceneId => "26",
+				"Active" => false,
+				"VariableId => "0"
+			),
+			Array(
+				"Scene" => "S2 double click",
+				"SceneId => "24",
+				"Active" => false,
+				"VariableId => "0"
+			),
+			Array(
+				"Scene" => "S2 tripple click",
+				"SceneId => "25",
+				"Active" => false,
+				"VariableId => "0"
+			),
+			Array(
+				"Scene" => "S2 hold",
+				"SceneId => "22",
+				"Active" => false,
+				"VariableId => "0"
+			),
+			Array(
+				"Scene" => "S2 release",
+				"SceneId => "23",
+				"Active" => false,
+				"VariableId => "0"
+			)
+		);
+		
+		$form['elements'][] = Array(
+			"type" => "List", 
+			"columns" => $sceneActionsColumns, 
+			"values" => $sceneActionsValues,
+			"name" => "SceneActions", 
+			"caption" => "Scene Actions", 
+			"add" => false, 
+			"delete" => false,
+			"rowCount" => 9
+		);
 		
 		// Add the buttons for the test center
 		$form['actions'][] = Array(	"type" => "Button", "label" => "Refresh", "onClick" => 'SCENEIDFGD212_RefreshInformation($id);');
