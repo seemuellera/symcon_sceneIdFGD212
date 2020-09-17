@@ -72,7 +72,8 @@ class SceneIdFGD212 extends IPSModule {
 			Array(
 				"caption" => "Scene Name",
 				"Name" => "SceneName",
-				"width" => "auto"
+				"width" => "auto",
+				"edit" => Array("type" => "ValidationTextBox", "enabled" => false)
 			),
 			Array(
 				"caption" => "Scene ID",
@@ -156,8 +157,8 @@ class SceneIdFGD212 extends IPSModule {
 			"columns" => $sceneActionsColumns,
 			"name" => "SceneActions", 
 			"caption" => "Scene Actions", 
-			"add" => true, 
-			"delete" => true,
+			"add" => false, 
+			"delete" => false,
 			"rowCount" => 9,
 			"values" => $sceneActionsValues
 		);
