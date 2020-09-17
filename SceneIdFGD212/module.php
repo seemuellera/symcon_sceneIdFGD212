@@ -21,6 +21,25 @@ class SceneIdFGD212 extends IPSModule {
 			"22" => "S2 hold",
 			"23" => "S2 release"
 		);
+		
+		$this->SceneActions = Array(
+			Array(
+				"caption" => "Toggle Status",
+				"value" => "Toggle"
+			),
+			Array(
+				"caption" => "Switch On",
+				"value" => "SwitchOn"
+			),
+			Array(
+				"caption" => "Switch Off",
+				"value" => "SwitchOff"
+			),
+			Array(
+				"caption" => "Dim to a specifc value",
+				"value" => "DimToValue"
+			)
+		);
 	}
 
 	// Überschreibt die interne IPS_Create($id) Funktion
@@ -44,6 +63,16 @@ class SceneIdFGD212 extends IPSModule {
 		$this->RegisterPropertyBoolean("SceneS2TrippleClickEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS2HoldEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS2ReleaseEnabled",false);
+		
+		$this->RegisterPropertyString("SceneS1SingleClickAction","Toggle");
+		$this->RegisterPropertyString("SceneS1DoubleClickAction","Toggle");
+		$this->RegisterPropertyString("SceneS1HoldAction","Toggle");
+		$this->RegisterPropertyString("SceneS1ReleaseAction","Toggle");
+		$this->RegisterPropertyString("SceneS2SingleClickAction","Toggle");
+		$this->RegisterPropertyString("SceneS2DoubleClickAction","Toggle");
+		$this->RegisterPropertyString("SceneS2TrippleClickAction","Toggle");
+		$this->RegisterPropertyString("SceneS2HoldAction","Toggle");
+		$this->RegisterPropertyString("SceneS2ReleaseAction","Toggle");
 		
 		// Variables
 		$this->RegisterVariableInteger("LastTrigger","Last Trigger","~UnixTimestamp");
@@ -97,6 +126,12 @@ class SceneIdFGD212 extends IPSModule {
 					"type" => "CheckBox",
 					"name" => "SceneS1SingleClickEnabled",
 					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS1SingleClickAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
 				)
 			)
 		);
@@ -109,6 +144,12 @@ class SceneIdFGD212 extends IPSModule {
 					"type" => "CheckBox",
 					"name" => "SceneS1DoubleClickEnabled",
 					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS1DoubleClickAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
 				)
 			)
 		);
