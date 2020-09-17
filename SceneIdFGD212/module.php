@@ -194,6 +194,201 @@ class SceneIdFGD212 extends IPSModule {
 			)
 		);
 		
+		$form['elements'][] = Array(
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[12],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS1HoldEnabled",
+					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS1HoldAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS1HoldTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS1HoldDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
+				)
+			)
+		);
+		
+		$form['elements'][] = Array(
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[13],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS1ReleaseEnabled",
+					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS1ReleaseAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS1ReleaseTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS1ReleaseDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
+				)
+			)
+		);
+		
+		$form['elements'][] = Array(
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[26],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS2SingleClickEnabled",
+					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS2SingleClickAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS2SingleClickTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS2SingleClickDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
+				)
+			)
+		);
+		
+		$form['elements'][] = Array(
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[24],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS2DoubleClickEnabled",
+					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS2DoubleClickAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS2DoubleClickTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS2DoubleClickDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
+				)
+			)
+		);
+		
+		$form['elements'][] = Array(
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[25],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS2TrippleClickEnabled",
+					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS2TrippleClickAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS2TrippleClickTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS2TrippleClickDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
+				)
+			)
+		);
+		
+		$form['elements'][] = Array(
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[22],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS2HoldEnabled",
+					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS2HoldAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS2HoldTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS2HoldDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
+				)
+			)
+		);
+		
+		$form['elements'][] = Array(
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[23],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS2ReleaseEnabled",
+					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS2ReleaseAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS2ReleaseTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS2ReleaseDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
+				)
+			)
+		);
 		
 		
 		// Add the buttons for the test center
