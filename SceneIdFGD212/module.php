@@ -50,6 +50,8 @@ class SceneIdFGD212 extends IPSModule {
 		// Also register the target variable to keep track of change events
 		$this->RegisterMessage($this->ReadPropertyInteger("SceneId"), VM_UPDATE);
 		
+		$this->LogMessage($this->ReadPropertyString("SceneActions"), "DEBUG");
+		
 		// Diese Zeile nicht löschen
 		parent::ApplyChanges();
 	}
