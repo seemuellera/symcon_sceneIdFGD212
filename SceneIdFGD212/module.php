@@ -240,8 +240,8 @@ class SceneIdFGD212 extends IPSModule {
 		$this->LogMessage("$TimeStamp - $SenderId - $Message - " . implode(",",$Data) , "DEBUG");
 		
 		$sceneId = $Data[0];
-		SetValue($this->GetIDForIdent("LastTrigger", time()));
-		SetValue($this->GetIDForIdent("LastAction", $this->SceneActions[$sceneId]));
+		SetValue($this->GetIDForIdent("LastTrigger"), time());
+		SetValue($this->GetIDForIdent("LastAction"), $this->SceneActions[$sceneId]);
 	}
 
 }
