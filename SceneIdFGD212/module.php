@@ -97,57 +97,57 @@ class SceneIdFGD212 extends IPSModule {
 		$sceneActionsValues = Array(
 			Array(
 				"Scene" => "S1 single click",
-				"SceneId => "16",
+				"SceneId" => "16",
 				"Active" => false,
-				"VariableId => "0"
+				"VariableId" => "0"
 			),
 			Array(
 				"Scene" => "S1 double click",
-				"SceneId => "14",
+				"SceneId" => "14",
 				"Active" => false,
-				"VariableId => "0"
+				"VariableId" => "0"
 			),
 			Array(
 				"Scene" => "S1 hold",
-				"SceneId => "12",
+				"SceneId" => "12",
 				"Active" => false,
-				"VariableId => "0"
+				"VariableId" => "0"
 			),
 			Array(
 				"Scene" => "S1 release",
-				"SceneId => "13",
+				"SceneId" => "13",
 				"Active" => false,
-				"VariableId => "0"
+				"VariableId" => "0"
 			),
 			Array(
 				"Scene" => "S2 single click",
-				"SceneId => "26",
+				"SceneId" => "26",
 				"Active" => false,
-				"VariableId => "0"
+				"VariableId" => "0"
 			),
 			Array(
 				"Scene" => "S2 double click",
-				"SceneId => "24",
+				"SceneId" => "24",
 				"Active" => false,
-				"VariableId => "0"
+				"VariableId" => "0"
 			),
 			Array(
 				"Scene" => "S2 tripple click",
-				"SceneId => "25",
+				"SceneId" => "25",
 				"Active" => false,
-				"VariableId => "0"
+				"VariableId" => "0"
 			),
 			Array(
 				"Scene" => "S2 hold",
-				"SceneId => "22",
+				"SceneId" => "22",
 				"Active" => false,
-				"VariableId => "0"
+				"VariableId" => "0"
 			),
 			Array(
 				"Scene" => "S2 release",
-				"SceneId => "23",
+				"SceneId" => "23",
 				"Active" => false,
-				"VariableId => "0"
+				"VariableId" => "0"
 			)
 		);
 		
