@@ -237,9 +237,62 @@ class SceneIdFGD212 extends IPSModule {
 	
 	public function MessageSink($TimeStamp, $SenderId, $Message, $Data) {
 	
-		$this->LogMessage("$TimeStamp - $SenderId - $Message - " . implode(",",$Data) , "DEBUG");
+		// $this->LogMessage("$TimeStamp - $SenderId - $Message - " . implode(",",$Data) , "DEBUG");
 		
 		$sceneId = $Data[0];
+		
+		// Exit the function if the scene ID is disabled
+		switch ($sceneId) {
+		
+			case "16":
+				if(! $this->ReadPropertyBoolean("SceneS1SingleClickEnabled") ) {
+					return;
+				}
+				break;
+			case "14":
+				if(! $this->ReadPropertyBoolean("SceneS1DoubleClickEnabled") ) {
+					return;
+				}
+				break;
+			case "12":
+				if(! $this->ReadPropertyBoolean("SceneS1HoldEnabled") ) {
+					return;
+				}
+				break;
+			case "13":
+				if(! $this->ReadPropertyBoolean("SceneS1HoldEnabled") ) {
+					return;
+				}
+				break;
+			case "26":
+				if(! $this->ReadPropertyBoolean("SceneS2SingleClickEnabled") ) {
+					return;
+				}
+				break;
+			case "24":
+				if(! $this->ReadPropertyBoolean("SceneS2DoubleClickEnabled") ) {
+					return;
+				}
+				break;
+			case "25":
+				if(! $this->ReadPropertyBoolean("SceneS2TrippleClickEnabled") ) {
+					return;
+				}
+				break;
+			case "22":
+				if(! $this->ReadPropertyBoolean("SceneS2HoldEnabled") ) {
+					return;
+				}
+				break;
+			case "23":
+				if(! $this->ReadPropertyBoolean("SceneS2HoldEnabled") ) {
+					return;
+				}
+				break;
+			default:
+				throw new Exception("Invalid Scene ID" . $sceneId);
+		}
+		
 		SetValue($this->GetIDForIdent("LastTrigger"), time());
 		SetValue($this->GetIDForIdent("LastAction"), $this->SceneNames[$sceneId]);
 	}
