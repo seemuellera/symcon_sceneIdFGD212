@@ -1,0 +1,14 @@
+{
+  "id": "{C9D1F2EC-88ED-4355-8EF8-8285A8FE7E11}",
+  "name": "SceneIdFGD212",
+  "type": 3,
+  "vendor": "Andreas",
+  "aliases": 
+  [
+	  "SceneIdFGD212"
+  ],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "SCENEIDFGD212"
+}
