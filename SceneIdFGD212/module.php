@@ -238,6 +238,10 @@ class SceneIdFGD212 extends IPSModule {
 	public function MessageSink($TimeStamp, $SenderId, $Message, $Data) {
 	
 		$this->LogMessage("$TimeStamp - $SenderId - $Message - " . implode(",",$Data) , "DEBUG");
+		
+		$sceneId = $Data[0];
+		SetValue($this->GetIDForIdent("LastTrigger", time()));
+		SetValue($this->GetIDForIdent("LastAction", $this->SceneActions[$sceneId]));
 	}
 
 }
