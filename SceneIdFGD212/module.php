@@ -72,14 +72,14 @@ class SceneIdFGD212 extends IPSModule {
 			Array(
 				"caption" => "Scene Name",
 				"Name" => "SceneName",
-				"width" => "auto",
+				"width" => "650px",
 				"edit" => Array("type" => "ValidationTextBox", "enabled" => false)
 			),
 			Array(
 				"caption" => "Scene ID",
 				"Name" => "SceneId",
 				"width" => "auto",
-				"visible" => false
+				"edit" => Array("type" => "NumberSpinner", "enabled" => false)
 			),
 			Array(
 				"caption" => "Active",
