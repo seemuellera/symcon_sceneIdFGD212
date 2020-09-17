@@ -10,6 +10,17 @@ class SceneIdFGD212 extends IPSModule {
 		parent::__construct($InstanceID);
 
 		// Selbsterstellter Code
+		$this->SceneNames = Array(
+			"16" => "S1 single click",
+			"14" => "S1 double click",
+			"12" => "S1 hold",
+			"13" => "S1 release",
+			"26" => "S2 single click",
+			"24" => "S2 double click",
+			"25" => "S2 tripple click",
+			"22" => "S2 hold",
+			"23" => "S2 release"
+		);
 	}
 
 	// Überschreibt die interne IPS_Create($id) Funktion
@@ -18,15 +29,25 @@ class SceneIdFGD212 extends IPSModule {
 		// Diese Zeile nicht löschen.
 		parent::Create();
 
-		// Properties
+		// Properties - Global
 		$this->RegisterPropertyString("Sender","SceneIdFGD212");
 		$this->RegisterPropertyInteger("RefreshInterval",0);
 		$this->RegisterPropertyInteger("SceneId",0);
 		$this->RegisterPropertyBoolean("DebugOutput",false);
-		$this->RegisterPropertyString("SceneActions", "");
+		// Properties - Scenes
+		$this->ReadPropertyBoolean("SceneS1SingleClickEnabled",false);
+		$this->ReadPropertyBoolean("SceneS1DoubleClickEnabled",false);
+		$this->ReadPropertyBoolean("SceneS1HoldEnabled",false);
+		$this->ReadPropertyBoolean("SceneS1ReleaseEnabled",false);
+		$this->ReadPropertyBoolean("SceneS2SingleClickEnabled",false);
+		$this->ReadPropertyBoolean("SceneS2DoubleClickEnabled",false);
+		$this->ReadPropertyBoolean("SceneS2TrippleClickEnabled",false);
+		$this->ReadPropertyBoolean("SceneS2HoldEnabled",false);
+		$this->ReadPropertyBoolean("SceneS2ReleaseEnabled",false);
 		
 		// Variables
 		$this->RegisterVariableInteger("LastTrigger","Last Trigger","~UnixTimestamp");
+		$this->RegisterVariableString("LastAction","Last Action");
 
 		// Default Actions
 		// $this->EnableAction("Status");
@@ -70,100 +91,31 @@ class SceneIdFGD212 extends IPSModule {
 		$form['elements'][] = Array("type" => "CheckBox", "name" => "DebugOutput", "caption" => "Enable Debug Output");
 		$form['elements'][] = Array("type" => "SelectVariable", "name" => "SceneId", "caption" => "Scene ID of source device");
 		
-		$sceneActionsColumns = Array(
-			Array(
-				"caption" => "Scene Name",
-				"Name" => "SceneName",
-				"width" => "650px",
-				"edit" => Array("type" => "ValidationTextBox", "enabled" => false)
-			),
-			Array(
-				"caption" => "Scene ID",
-				"Name" => "SceneId",
-				"width" => "auto",
-				"edit" => Array("type" => "NumberSpinner", "enabled" => false)
-			),
-			Array(
-				"caption" => "Active",
-				"Name" => "SceneActive",
-				"width" => "auto",
-				"edit" => Array("type" => "CheckBox")
-			),
-			Array(
-				"caption" => "Variable Id",
-				"name" => "VariableId",
-				"width" => "auto",
-				"edit" => Array("type" => "SelectVariable")
-			)
-		);
-		
-		$sceneActionsValues = Array(
-			Array(
-				"Scene Name" => "S1 single click",
-				"SceneId" => "16",
-				"SceneActive" => false,
-				"VariableId" => "0"
-			),
-			Array(
-				"SceneName" => "S1 double click",
-				"SceneId" => "14",
-				"SceneActive" => false,
-				"VariableId" => "0"
-			),
-			Array(
-				"SceneName" => "S1 hold",
-				"SceneId" => "12",
-				"SceneActive" => false,
-				"VariableId" => "0"
-			),
-			Array(
-				"SceneName" => "S1 release",
-				"SceneId" => "13",
-				"SceneActive" => false,
-				"VariableId" => "0"
-			),
-			Array(
-				"SceneName" => "S2 single click",
-				"SceneId" => "26",
-				"SceneActive" => false,
-				"VariableId" => "0"
-			),
-			Array(
-				"SceneName" => "S2 double click",
-				"SceneId" => "24",
-				"SceneActive" => false,
-				"VariableId" => "0"
-			),
-			Array(
-				"SceneName" => "S2 tripple click",
-				"SceneId" => "25",
-				"SceneActive" => false,
-				"VariableId" => "0"
-			),
-			Array(
-				"SceneName" => "S2 hold",
-				"SceneId" => "22",
-				"SceneActive" => false,
-				"VariableId" => "0"
-			),
-			Array(
-				"SceneName" => "S2 release",
-				"SceneId" => "23",
-				"SceneActive" => false,
-				"VariableId" => "0"
+		$form['elements'][] = Array(
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[16],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS1SingleClickEnabled",
+					"caption" => "Enable Scene"
+				)
 			)
 		);
 		
 		$form['elements'][] = Array(
-			"type" => "List", 
-			"columns" => $sceneActionsColumns,
-			"name" => "SceneActions", 
-			"caption" => "Scene Actions", 
-			"add" => false, 
-			"delete" => false,
-			"rowCount" => 9,
-			"values" => $sceneActionsValues
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[14],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS1DoubleClickEnabled",
+					"caption" => "Enable Scene"
+				)
+			)
 		);
+		
+		
 		
 		// Add the buttons for the test center
 		$form['actions'][] = Array(	"type" => "Button", "label" => "Refresh", "onClick" => 'SCENEIDFGD212_RefreshInformation($id);');
