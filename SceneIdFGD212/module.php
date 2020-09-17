@@ -70,8 +70,8 @@ class SceneIdFGD212 extends IPSModule {
 		
 		$sceneActionsColumns = Array(
 			Array(
-				"caption" => "Scene",
-				"Name" => "Scene",
+				"caption" => "Scene Name",
+				"Name" => "SceneName",
 				"width" => "auto"
 			),
 			Array(
@@ -96,55 +96,55 @@ class SceneIdFGD212 extends IPSModule {
 		
 		$sceneActionsValues = Array(
 			Array(
-				"Scene" => "S1 single click",
+				"SceneName" => "S1 single click",
 				"SceneId" => "16",
 				"Active" => false,
 				"VariableId" => "0"
 			),
 			Array(
-				"Scene" => "S1 double click",
+				"SceneName" => "S1 double click",
 				"SceneId" => "14",
 				"Active" => false,
 				"VariableId" => "0"
 			),
 			Array(
-				"Scene" => "S1 hold",
+				"SceneName" => "S1 hold",
 				"SceneId" => "12",
 				"Active" => false,
 				"VariableId" => "0"
 			),
 			Array(
-				"Scene" => "S1 release",
+				"SceneName" => "S1 release",
 				"SceneId" => "13",
 				"Active" => false,
 				"VariableId" => "0"
 			),
 			Array(
-				"Scene" => "S2 single click",
+				"SceneName" => "S2 single click",
 				"SceneId" => "26",
 				"Active" => false,
 				"VariableId" => "0"
 			),
 			Array(
-				"Scene" => "S2 double click",
+				"SceneName" => "S2 double click",
 				"SceneId" => "24",
 				"Active" => false,
 				"VariableId" => "0"
 			),
 			Array(
-				"Scene" => "S2 tripple click",
+				"SceneName" => "S2 tripple click",
 				"SceneId" => "25",
 				"Active" => false,
 				"VariableId" => "0"
 			),
 			Array(
-				"Scene" => "S2 hold",
+				"SceneName" => "S2 hold",
 				"SceneId" => "22",
 				"Active" => false,
 				"VariableId" => "0"
 			),
 			Array(
-				"Scene" => "S2 release",
+				"SceneName" => "S2 release",
 				"SceneId" => "23",
 				"Active" => false,
 				"VariableId" => "0"
@@ -153,13 +153,13 @@ class SceneIdFGD212 extends IPSModule {
 		
 		$form['elements'][] = Array(
 			"type" => "List", 
-			"columns" => $sceneActionsColumns, 
-			"values" => $sceneActionsValues,
+			"columns" => $sceneActionsColumns,
 			"name" => "SceneActions", 
 			"caption" => "Scene Actions", 
-			"add" => false, 
-			"delete" => false,
-			"rowCount" => 9
+			"add" => true, 
+			"delete" => true,
+			"rowCount" => 9,
+			"values" => $sceneActionsValues
 		);
 		
 		// Add the buttons for the test center
