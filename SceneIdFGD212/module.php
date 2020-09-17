@@ -438,6 +438,12 @@ class SceneIdFGD212 extends IPSModule {
 	
 		$this->LogMessage("$TimeStamp - $SenderId - $Message - " . implode(",",$Data) , "DEBUG");
 		
+		if ($Data[3] == $Data[4]) {
+			
+			$this->LogMessage("Duplicate Event. Ignoring it", "DEBUG");
+			return;
+		}
+		
 		$sceneId = $Data[0];
 		
 		// Exit the function if the scene ID is disabled
