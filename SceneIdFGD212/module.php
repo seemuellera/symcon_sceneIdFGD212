@@ -74,6 +74,26 @@ class SceneIdFGD212 extends IPSModule {
 		$this->RegisterPropertyString("SceneS2HoldAction","Toggle");
 		$this->RegisterPropertyString("SceneS2ReleaseAction","Toggle");
 		
+		$this->RegisterPropertyInteger("SceneS1SingleClickTarget",0);
+		$this->RegisterPropertyInteger("SceneS1DoubleClickTarget",0);
+		$this->RegisterPropertyInteger("SceneS1HoldTarget",0);
+		$this->RegisterPropertyInteger("SceneS1ReleaseTarget",0);
+		$this->RegisterPropertyInteger("SceneS2SingleClickTarget",0);
+		$this->RegisterPropertyInteger("SceneS2DoubleClickTarget",0);
+		$this->RegisterPropertyInteger("SceneS2TrippleClickTarget",0);
+		$this->RegisterPropertyInteger("SceneS2HoldTarget",0);
+		$this->RegisterPropertyInteger("SceneS2ReleaseTarget",0);
+		
+		$this->RegisterPropertyInteger("SceneS1SingleClickDimValue",100);
+		$this->RegisterPropertyInteger("SceneS1DoubleClickDimValue",100);
+		$this->RegisterPropertyInteger("SceneS1HoldDimValue",100);
+		$this->RegisterPropertyInteger("SceneS1ReleaseDimValue",100);
+		$this->RegisterPropertyInteger("SceneS2SingleClickDimValue",100);
+		$this->RegisterPropertyInteger("SceneS2DoubleClickDimValue",100);
+		$this->RegisterPropertyInteger("SceneS2TrippleClickDimValue",100);
+		$this->RegisterPropertyInteger("SceneS2HoldDimValue",100);
+		$this->RegisterPropertyInteger("SceneS2ReleaseDimValue",100);
+		
 		// Variables
 		$this->RegisterVariableInteger("LastTrigger","Last Trigger","~UnixTimestamp");
 		$this->RegisterVariableString("LastAction","Last Action");
@@ -132,6 +152,16 @@ class SceneIdFGD212 extends IPSModule {
 					"name" => "SceneS1SingleClickAction",
 					"caption" => "Action",
 					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS1SingleClickTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS1SingleClickDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
 				)
 			)
 		);
@@ -150,6 +180,16 @@ class SceneIdFGD212 extends IPSModule {
 					"name" => "SceneS1DoubleClickAction",
 					"caption" => "Action",
 					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS1DoubleClickTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS1DoubleClickDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
 				)
 			)
 		);
