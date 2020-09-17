@@ -38,6 +38,10 @@ class SceneIdFGD212 extends IPSModule {
 			Array(
 				"caption" => "Dim to a specifc value",
 				"value" => "DimToValue"
+			),
+			Array(
+				"caption" => "Change to a specifc Color",
+				"value" => "ChangeToColor"
 			)
 		);
 	}
@@ -432,7 +436,7 @@ class SceneIdFGD212 extends IPSModule {
 	
 	public function MessageSink($TimeStamp, $SenderId, $Message, $Data) {
 	
-		$this->LogMessage("$TimeStamp - $SenderId - $Message - " . implode(",",$Data) , "DEBUG");
+		// $this->LogMessage("$TimeStamp - $SenderId - $Message - " . implode(",",$Data) , "DEBUG");
 		
 		$sceneId = $Data[0];
 		
@@ -517,6 +521,9 @@ class SceneIdFGD212 extends IPSModule {
 			case "DimToValue":
 				$this->DimDeviceToValue($targetId, $specificValue);
 				return;
+			case "ChangeToColor":
+				$this->ChangeDeviceToColor($targetId, $specificValue);
+				return;
 			default:
 				throw new Exception("Action not yet implemented");
 		}
@@ -545,6 +552,11 @@ class SceneIdFGD212 extends IPSModule {
 	}
 	
 	protected function DimDeviceToValue($targetId, $value) {
+			
+		RequestAction($targetId, $value);
+	}
+	
+	protected function ChangeDeviceToColor($targetId, $value) {
 			
 		RequestAction($targetId, $value);
 	}
