@@ -412,7 +412,7 @@ class SceneIdFGD212 extends IPSModule {
 		
 		$messageComplete = $severity . " - " . $message;
 		
-		IPS_LogMessage($this->ReadPropertyString('Sender'), $messageComplete);
+		IPS_LogMessage($this->ReadPropertyString('Sender') . " - " . $this->InstanceID, $messageComplete);
 	}
 
 	public function RefreshInformation() {
