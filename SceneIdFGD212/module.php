@@ -11,10 +11,14 @@ class SceneIdFGD212 extends IPSModule {
 
 		// Selbsterstellter Code
 		$this->SceneNames = Array(
+			"10" => "S1 toggle switch",
+			"11" => "S1 toggle switch",
 			"16" => "S1 single click",
 			"14" => "S1 double click",
 			"12" => "S1 hold",
 			"13" => "S1 release",
+			"20" => "S2 toggle switch",
+			"21" => "S2 toggle switch",
 			"26" => "S2 single click",
 			"24" => "S2 double click",
 			"25" => "S2 tripple click",
@@ -58,40 +62,48 @@ class SceneIdFGD212 extends IPSModule {
 		$this->RegisterPropertyInteger("SceneId",0);
 		$this->RegisterPropertyBoolean("DebugOutput",false);
 		// Properties - Scenes
+		$this->RegisterPropertyBoolean("SceneS1ToggleSwitchEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS1SingleClickEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS1DoubleClickEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS1HoldEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS1ReleaseEnabled",false);
+		$this->RegisterPropertyBoolean("SceneS2ToggleSwitchEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS2SingleClickEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS2DoubleClickEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS2TrippleClickEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS2HoldEnabled",false);
 		$this->RegisterPropertyBoolean("SceneS2ReleaseEnabled",false);
 		
+		$this->RegisterPropertyString("SceneS1ToggleSwitchAction","Toggle");
 		$this->RegisterPropertyString("SceneS1SingleClickAction","Toggle");
 		$this->RegisterPropertyString("SceneS1DoubleClickAction","Toggle");
 		$this->RegisterPropertyString("SceneS1HoldAction","Toggle");
 		$this->RegisterPropertyString("SceneS1ReleaseAction","Toggle");
+		$this->RegisterPropertyString("SceneS2ToggleSwitchAction","Toggle");
 		$this->RegisterPropertyString("SceneS2SingleClickAction","Toggle");
 		$this->RegisterPropertyString("SceneS2DoubleClickAction","Toggle");
 		$this->RegisterPropertyString("SceneS2TrippleClickAction","Toggle");
 		$this->RegisterPropertyString("SceneS2HoldAction","Toggle");
 		$this->RegisterPropertyString("SceneS2ReleaseAction","Toggle");
 		
+		$this->RegisterPropertyInteger("SceneS1ToggleSwitchTarget",0);
 		$this->RegisterPropertyInteger("SceneS1SingleClickTarget",0);
 		$this->RegisterPropertyInteger("SceneS1DoubleClickTarget",0);
 		$this->RegisterPropertyInteger("SceneS1HoldTarget",0);
 		$this->RegisterPropertyInteger("SceneS1ReleaseTarget",0);
+		$this->RegisterPropertyInteger("SceneS2ToggleSwitchTarget",0);
 		$this->RegisterPropertyInteger("SceneS2SingleClickTarget",0);
 		$this->RegisterPropertyInteger("SceneS2DoubleClickTarget",0);
 		$this->RegisterPropertyInteger("SceneS2TrippleClickTarget",0);
 		$this->RegisterPropertyInteger("SceneS2HoldTarget",0);
 		$this->RegisterPropertyInteger("SceneS2ReleaseTarget",0);
 		
+		$this->RegisterPropertyInteger("SceneS1ToggleSwitchDimValue",100);
 		$this->RegisterPropertyInteger("SceneS1SingleClickDimValue",100);
 		$this->RegisterPropertyInteger("SceneS1DoubleClickDimValue",100);
 		$this->RegisterPropertyInteger("SceneS1HoldDimValue",100);
 		$this->RegisterPropertyInteger("SceneS1ReleaseDimValue",100);
+		$this->RegisterPropertyInteger("SceneS2ToggleSwitchDimValue",100);
 		$this->RegisterPropertyInteger("SceneS2SingleClickDimValue",100);
 		$this->RegisterPropertyInteger("SceneS2DoubleClickDimValue",100);
 		$this->RegisterPropertyInteger("SceneS2TrippleClickDimValue",100);
@@ -141,6 +153,34 @@ class SceneIdFGD212 extends IPSModule {
 		$form['elements'][] = Array("type" => "NumberSpinner", "name" => "RefreshInterval", "caption" => "Refresh Interval");
 		$form['elements'][] = Array("type" => "CheckBox", "name" => "DebugOutput", "caption" => "Enable Debug Output");
 		$form['elements'][] = Array("type" => "SelectVariable", "name" => "SceneId", "caption" => "Scene ID of source device");
+		
+		$form['elements'][] = Array(
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[10],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS1ToggleSwitchEnabled",
+					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS1ToggleSwitchAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS1ToggleSwitchTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS1ToggleSwitchDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
+				)
+			)
+		);
 		
 		$form['elements'][] = Array(
 			"type" => "ExpansionPanel", 
@@ -249,6 +289,34 @@ class SceneIdFGD212 extends IPSModule {
 				Array(
 					"type" => "NumberSpinner",
 					"name" => "SceneS1ReleaseDimValue",
+					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
+				)
+			)
+		);
+		
+		$form['elements'][] = Array(
+			"type" => "ExpansionPanel", 
+			"caption" => $this->SceneNames[20],
+			"items" => Array(
+				Array(
+					"type" => "CheckBox",
+					"name" => "SceneS2ToggleSwitchEnabled",
+					"caption" => "Enable Scene"
+				),
+				Array(
+					"type" => "Select",
+					"name" => "SceneS2ToggleSwitchAction",
+					"caption" => "Action",
+					"options" => $this->SceneActions
+				),
+				Array(
+					"type" => "SelectVariable",
+					"name" => "SceneS2ToggleSwitchTarget",
+					"caption" => "Target Variable"
+				),
+				Array(
+					"type" => "NumberSpinner",
+					"name" => "SceneS2ToggleSwitchDimValue",
 					"caption" => "Target Dimming Value (only applicable for Dim to Value mode)"
 				)
 			)
@@ -449,6 +517,18 @@ class SceneIdFGD212 extends IPSModule {
 		// Exit the function if the scene ID is disabled
 		switch ($sceneId) {
 		
+			case "10":
+				if (! $this->ReadPropertyBoolean("SceneS1ToggleSwitchEnabled") ) {
+					return;
+				}
+				$this->DeviceHandler($this->ReadPropertyInteger("SceneS1ToggleSwitchTarget"), $this->ReadPropertyString("SceneS1ToggleSwitchAction"), $this->ReadPropertyInteger("SceneS1ToggleSwitchDimValue"));
+				break;
+			case "11":
+				if (! $this->ReadPropertyBoolean("SceneS1ToggleSwitchEnabled") ) {
+					return;
+				}
+				$this->DeviceHandler($this->ReadPropertyInteger("SceneS1ToggleSwitchTarget"), $this->ReadPropertyString("SceneS1ToggleSwitchAction"), $this->ReadPropertyInteger("SceneS1ToggleSwitchDimValue"));
+				break;
 			case "16":
 				if(! $this->ReadPropertyBoolean("SceneS1SingleClickEnabled") ) {
 					return;
@@ -472,6 +552,18 @@ class SceneIdFGD212 extends IPSModule {
 					return;
 				}
 				$this->DeviceHandler($this->ReadPropertyInteger("SceneS1ReleaseTarget"), $this->ReadPropertyString("SceneS1ReleaseAction"), $this->ReadPropertyInteger("SceneS1ReleaseDimValue"));
+				break;
+			case "20":
+				if (! $this->ReadPropertyBoolean("SceneS2ToggleSwitchEnabled") ) {
+					return;
+				}
+				$this->DeviceHandler($this->ReadPropertyInteger("SceneS2ToggleSwitchTarget"), $this->ReadPropertyString("SceneS2ToggleSwitchAction"), $this->ReadPropertyInteger("SceneS2ToggleSwitchDimValue"));
+				break;
+			case "21":
+				if (! $this->ReadPropertyBoolean("SceneS2ToggleSwitchEnabled") ) {
+					return;
+				}
+				$this->DeviceHandler($this->ReadPropertyInteger("SceneS2ToggleSwitchTarget"), $this->ReadPropertyString("SceneS2ToggleSwitchAction"), $this->ReadPropertyInteger("SceneS2ToggleSwitchDimValue"));
 				break;
 			case "26":
 				if(! $this->ReadPropertyBoolean("SceneS2SingleClickEnabled") ) {
