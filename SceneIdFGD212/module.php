@@ -44,6 +44,10 @@ class SceneIdFGD212 extends IPSModule {
 				"value" => "DimToValue"
 			),
 			Array(
+				"caption" => "Toggle Dim value",
+				"value" => "DimToggle"
+			),
+			Array(
 				"caption" => "Change to a specifc Color",
 				"value" => "ChangeToColor"
 			)
@@ -619,6 +623,9 @@ class SceneIdFGD212 extends IPSModule {
 			case "DimToValue":
 				$this->DimDeviceToValue($targetId, $specificValue);
 				return;
+			case "DimToggle":
+				$this->DimDeviceToggle($targetId, $specificValue);
+				return;
 			case "ChangeToColor":
 				$this->ChangeDeviceToColor($targetId, $specificValue);
 				return;
@@ -652,6 +659,18 @@ class SceneIdFGD212 extends IPSModule {
 	protected function DimDeviceToValue($targetId, $value) {
 			
 		RequestAction($targetId, $value);
+	}
+	
+	protected function DimDeviceToggle($targetId, $value) {
+			
+		if (GetValue($targetId) == 0) {
+			
+			RequestAction($targetId, $value);
+		}
+		else {
+			
+			RequestAction($targetId, 0);
+		}
 	}
 	
 	protected function ChangeDeviceToColor($targetId, $value) {
